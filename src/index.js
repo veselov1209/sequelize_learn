@@ -45,14 +45,14 @@ const createUser = async data => {
 // createUser(data).then(console.log).catch(console.err);
 
 
-// const getUserById = async id => {
-//     try{
-//         const foundUser = await User.findByPk(id);
-//         return foundUser;
-//     } catch(e){
-//         throw e;
-//     }
-// }
+const getUserById = async id => {
+    try{
+        const foundUser = await User.findByPk(id);
+        return foundUser;
+    } catch(e){
+        throw e;
+    }
+}
 
 // getUserById(55).then(console.log).catch(console.err);
 // getUserById(100).then(console.log).catch(console.err);
@@ -87,4 +87,18 @@ const deleteUser = async id => {
     }
 }
 
-deleteUser(1).then(console.log).catch(console.err);
+// deleteUser(1).then(console.log).catch(console.err);
+
+const updateUser = async (id, data) => {
+    try{
+        const updateUser = await User.update(data, {
+            where: {id}
+        });
+        return updateUser;
+    } catch(e){
+        throw e;
+    }
+}
+
+// getUserById(2).then(console.log).catch(console.err);
+// updateUser(2, {email: "newemail2@mail.com", age: 333}).then(console.log).catch(console.err);
